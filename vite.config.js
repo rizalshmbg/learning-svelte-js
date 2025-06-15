@@ -14,6 +14,7 @@ export default defineConfig({
 				'counter-derived': 'counter-derived.html',
 				'global-counter': 'global-counter.html',
 				'auto-counter': 'auto-counter.html',
+				user: 'user.html',
 			},
 		},
 	},
