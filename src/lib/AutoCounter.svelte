@@ -10,6 +10,8 @@
 		const id = setInterval(() => {
 			counter += 1
 		}, interval)
+
+		return () => clearInterval(id);
 	})
 </script>
 
