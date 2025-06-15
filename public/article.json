@@ -1,0 +1,5 @@
+{
+    "id": 1,
+    "title": "Understanding JSON",
+    "content": "JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used in web applications to transmit data between a server and a client."
+}
