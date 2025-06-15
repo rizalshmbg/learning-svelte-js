@@ -1,18 +1,20 @@
 <script>
 	import Todo from './Todo.svelte';
+
+	const data = [
+		{ id: 1, name: 'Belajar HTML', done: true },
+		{ id: 2, name: 'Belajar CSS', done: true },
+		{ id: 3, name: 'Belajar React', done: true },
+		{ id: 4, name: 'Belajar Next', done: false },
+		{ id: 5, name: 'Belajar Svelte', done: true },
+		{ id: 6, name: 'Belajar Nuxt', done: false },
+	];
 </script>
 
 <ul>
-	<li>
-		<Todo id="1" name="Rizal" done={true} />
-	</li>
-	<li>
-		<Todo id="2" name="Imam" done={true} />
-	</li>
-	<li>
-		<Todo id="3" name="Asep" done={false} />
-	</li>
-	<li>
-		<Todo id="4" name="Ahlam" done={true} />
-	</li>
+	{#each data as todo}
+		<li>
+			<Todo {...todo} />
+		</li>
+	{/each}
 </ul>
