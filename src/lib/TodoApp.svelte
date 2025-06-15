@@ -1,26 +1,37 @@
 <script>
 	import Todo from './Todo.svelte';
 
-	const data = $state([
-		{ id: 1, name: 'Belajar HTML', done: true },
-		{ id: 2, name: 'Belajar CSS', done: true },
-		{ id: 3, name: 'Belajar React', done: true },
-		{ id: 4, name: 'Belajar Next', done: false },
-		{ id: 5, name: 'Belajar Svelte', done: true },
-		{ id: 6, name: 'Belajar Nuxt', done: false },
-	]);
+	let data = $state([]);
 
-	function remove() {
-		data.shift();
+	let id = 0;
+
+	function add(e) {
+		e.preventDefault();
+
+		const input = document.getElementById('todo')
+		data.push({
+			id: id++,
+			name: input.value,
+			done: false
+		})
+		input.value = '';
+	}
+
+	function remove(id) {
+		data = data.filter((todo) => todo.id !== id)
 	}
 </script>
 
-<button onclick={remove}>Remove</button>
+<form>
+	<input type="text" id="todo" placeholder="Add Todo">
+	<button onclick={add}>Add</button>
+</form>
 
 <ul>
 	{#each data as todo (todo.id)}
 		<li>
 			<Todo {...todo} />
+			<button onclick={() => remove(todo.id)}>Remove</button>
 		</li>
 	{/each}
 </ul>
